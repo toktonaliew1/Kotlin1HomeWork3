@@ -3,12 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/characterFragment">
-
+    app:startDestination="@id/charactersFragment">
 
     <fragment
-        android:id="@+id/characterFragment"
+        android:id="@+id/charactersFragment"
         android:name="com.example.kotlin1homework3.ui.fragments.character.CharacterFragment"
-        android:label="fragment_character"
-        tools:layout="@layout/fragment_character" />
+        android:label="Characters"
+        tools:layout="@layout/fragment_character">
+        <action
+            android:id="@+id/action_charactersFragment_to_characterDetailsFragment"
+            app:destination="@id/characterDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailsFragment"
+        android:name="com.example.kotlin1homework3.ui.fragments.character.detail.CharacterDetailFragment"
+        android:label="fragment_character_details"
+        tools:layout="@layout/fragment_character_detail">
+        <argument
+            android:name="position"
+            app:argType="integer" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/episodesFragment"
+        android:name="com.example.kotlin1homework3.ui.fragments.episode.EpisodeFragment"
+        android:label="Episodes"
+        tools:layout="@layout/fragment_episode" />
+
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.example.kotlin1homework3.ui.fragments.location.LocationFragment"
+        android:label="Locations"
+        tools:layout="@layout/fragment_location" />
+
 </navigation>

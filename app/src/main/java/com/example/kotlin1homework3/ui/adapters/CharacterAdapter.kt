@@ -2,16 +2,18 @@ package com.example.kotlin1homework3.ui.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.kotlin1homework3.databinding.ItemCharacterBinding
 import com.example.kotlin1homework3.model.character.CharacterModel
 
-class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.ViewHolder>(diffCallback) {
+class CharacterAdapter(
+    val onItemClick: (id :Int)  -> Unit
 
+    ) : ListAdapter<CharacterModel, CharacterAdapter.ViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -24,10 +26,20 @@ class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.ViewHolder
         holder.onBind(getItem(position))
     }
 
-    class ViewHolder(private val binding: ItemCharacterBinding) :
+    inner class ViewHolder(private val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: CharacterModel?) {
             binding.itemCharacterName.text = item?.name
+            Glide.with(binding.itemCharacterImage).load(item?.image)
+                .into(binding.itemCharacterImage)
+        }
+
+        init {
+            itemView.setOnClickListener {
+                getItem(absoluteAdapterPosition).apply {
+                    onItemClick(id)
+                }
+            }
         }
     }
 
@@ -49,16 +61,6 @@ class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.ViewHolder
                 ): Boolean {
                     return oldItem === newItem
                 }
-
             }
     }
-
-    /*inner class ViewHolder (
-        private var binding: ItemCharacterBinding):
-            RecyclerView.ViewHolder(binding.root) {
-
-        fun onBind(item: CharacterModel?) {
-            binding.itemCharacterName.text = item?.name
-        }
-    }*/
 }

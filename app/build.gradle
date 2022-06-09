@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -56,25 +57,23 @@ dependencies {
     def fragmentVersion = "1.3.6"
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
 
-    // Navigation
-    def navVersion = "2.4.1"
-    //   implementation
-    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
-    implementation "androidx.navigation:navigation-dynamic-features-fragment:$navVersion"
+    //navigation
+    def nav_version = "2.4.1"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // ViewBinding Property Delegate
     def viewBindingPropertyDelegate = "1.4.7"
-    // To use only without reflection variants of viewBinding
     implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:$viewBindingPropertyDelegate"
 
     def version = "2.4.1"
-    // | for Lifecycles only (without ViewModel or LiveData)
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$version"
 
     //Retrofit 2
     def retrofitVersion = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+
     //Gson
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
@@ -83,6 +82,6 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp"
     implementation "com.squareup.okhttp3:logging-interceptor"
 
-
-
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
 }
