@@ -15,7 +15,6 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
 
     private val binding by viewBinding(FragmentCharacterBinding::bind)
     private val viewModel : CharacterSharedViewModel by activityViewModels()
-    /*private val viewModel by viewModels<CharacterViewModel>()*/
 
     private val characterAdapter = CharacterAdapter(
         this::onItemClick
