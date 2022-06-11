@@ -1,18 +1,19 @@
-package com.example.kotlin1homework3.repository
+package com.example.kotlin1homework3.ui.fragments.character
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.kotlin1homework3.App
+import com.example.kotlin1homework3.model.CharacterModel
 import com.example.kotlin1homework3.model.RickyMortyResponse
-import com.example.kotlin1homework3.model.character.CharacterModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CharacterRepository {
+class CharacterSharedViewModel : ViewModel() {
 
     val data : MutableLiveData<RickyMortyResponse<CharacterModel>> = MutableLiveData()
 
-     fun fetchCharacters(): MutableLiveData<RickyMortyResponse<CharacterModel>> {
+    fun fetchCharacters(): MutableLiveData<RickyMortyResponse<CharacterModel>> {
         App.characterApiService?.fetchCharacters()
             ?.enqueue(object : Callback<RickyMortyResponse<CharacterModel>> {
                 override fun onResponse(
@@ -29,12 +30,13 @@ class CharacterRepository {
                     data.value = null
                 }
             })
-         return data
+        return data
     }
 
     fun fetchCharacterId(id : Int): MutableLiveData<CharacterModel>{
         val data:MutableLiveData<CharacterModel> = MutableLiveData()
-        App.characterApiService?.fetchSingleCharacter(id)?.enqueue(object : Callback<CharacterModel>{
+        App.characterApiService?.fetchSingleCharacter(id)?.enqueue(object :
+            Callback<CharacterModel> {
             override fun onResponse(
                 call: Call<CharacterModel>,
                 response: Response<CharacterModel>

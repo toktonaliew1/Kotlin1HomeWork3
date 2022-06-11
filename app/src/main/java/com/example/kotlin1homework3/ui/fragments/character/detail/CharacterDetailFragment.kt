@@ -4,18 +4,18 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.kotlin1homework3.R
 import com.example.kotlin1homework3.databinding.FragmentCharacterDetailBinding
-import com.example.kotlin1homework3.ui.fragments.character.CharacterViewModel
+import com.example.kotlin1homework3.ui.fragments.character.CharacterSharedViewModel
 
 class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
 
     private val binding by viewBinding(FragmentCharacterDetailBinding::bind)
-    private val viewModel by viewModels<CharacterViewModel>()
+    private val viewModel :CharacterSharedViewModel by activityViewModels()
     private val args: CharacterDetailFragmentArgs by navArgs()
 
     @SuppressLint("CheckResult")

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.kotlin1homework3.databinding.FragmentCharacterBinding
 import android.view.View
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -14,10 +14,11 @@ import com.example.kotlin1homework3.ui.adapters.CharacterAdapter
 class CharacterFragment : Fragment(R.layout.fragment_character) {
 
     private val binding by viewBinding(FragmentCharacterBinding::bind)
-    private val viewModel by viewModels<CharacterViewModel>()
+    private val viewModel : CharacterSharedViewModel by activityViewModels()
+    /*private val viewModel by viewModels<CharacterViewModel>()*/
 
     private val characterAdapter = CharacterAdapter(
-        this::onItemLongClick
+        this::onItemClick
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,7 +38,7 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
         }
     }
 
-    private fun onItemLongClick(id: Int) {
+    private fun onItemClick(id: Int) {
         findNavController().navigate(
             CharacterFragmentDirections.actionCharactersFragmentToCharacterDetailsFragment(
                 position = id
