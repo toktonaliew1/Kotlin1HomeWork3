@@ -1,8 +1,8 @@
-package com.example.kotlin1homework3.network.apiservices
+package com.example.kotlin1homework3.data.network.apiservices
 
+import com.example.kotlin1homework3.model.CharacterModel
 import retrofit2.Call
 import com.example.kotlin1homework3.model.RickyMortyResponse
-import com.example.kotlin1homework3.model.character.CharacterModel
 import retrofit2.http.GET
 import retrofit2.http.Path
 

@@ -6,18 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.kotlin1homework3.databinding.ItemCharacterBinding
-import com.example.kotlin1homework3.model.CharacterModel
+import com.example.kotlin1homework3.databinding.ItemEpisodeBinding
+import com.example.kotlin1homework3.model.EpisodeModel
 
-class CharacterAdapter(
+class EpisodeAdapter(
     val onItemClick: (id :Int)  -> Unit
 
-    ) : ListAdapter<CharacterModel, CharacterAdapter.ViewHolder>(diffCallback) {
+) : ListAdapter<EpisodeModel, EpisodeAdapter.ViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            ItemCharacterBinding.inflate
+            ItemEpisodeBinding.inflate
                 (LayoutInflater.from(parent.context), parent, false)
         )
     }
@@ -26,12 +25,12 @@ class CharacterAdapter(
         holder.onBind(getItem(position))
     }
 
-    inner class ViewHolder(private val binding: ItemCharacterBinding) :
+    inner class ViewHolder(private val binding: ItemEpisodeBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(item: CharacterModel?) {
-            binding.itemCharacterName.text = item?.name
-            Glide.with(binding.itemCharacterImage).load(item?.image)
-                .into(binding.itemCharacterImage)
+        fun onBind(item: EpisodeModel?) {
+            binding.itemEpisodeName.text = item?.name
+            binding.itemEpisodeAirDate.text = item?.air_date
+            binding.itemEpisodeEpisode.text = item?.episode
         }
 
         init {
@@ -44,19 +43,19 @@ class CharacterAdapter(
     }
 
     companion object {
-        private val diffCallback: DiffUtil.ItemCallback<CharacterModel?> =
-            object : DiffUtil.ItemCallback<CharacterModel?>() {
+        private val diffCallback: DiffUtil.ItemCallback<EpisodeModel?> =
+            object : DiffUtil.ItemCallback<EpisodeModel?>() {
                 override fun areItemsTheSame(
-                    oldItem: CharacterModel,
-                    newItem: CharacterModel
+                    oldItem: EpisodeModel,
+                    newItem: EpisodeModel
                 ): Boolean {
                     return oldItem.id === newItem.id
                 }
 
                 @SuppressLint("DiffUtilEquals")
                 override fun areContentsTheSame(
-                    oldItem: CharacterModel,
-                    newItem: CharacterModel
+                    oldItem: EpisodeModel,
+                    newItem: EpisodeModel
                 ): Boolean {
                     return oldItem === newItem
                 }

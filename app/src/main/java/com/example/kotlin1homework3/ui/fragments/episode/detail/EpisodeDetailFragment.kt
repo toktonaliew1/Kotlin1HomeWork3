@@ -11,7 +11,6 @@ import com.example.kotlin1homework3.R
 import com.example.kotlin1homework3.databinding.FragmentEpisodeDetailBinding
 import com.example.kotlin1homework3.ui.fragments.episode.EpisodeSharedViewModel
 
-
 class EpisodeDetailFragment : Fragment(R.layout.fragment_episode_detail) {
 
     private val binding by viewBinding(FragmentEpisodeDetailBinding::bind)
