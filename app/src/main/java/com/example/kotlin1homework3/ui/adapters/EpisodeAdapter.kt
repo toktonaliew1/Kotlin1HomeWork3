@@ -3,16 +3,16 @@ package com.example.kotlin1homework3.ui.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin1homework3.databinding.ItemEpisodeBinding
 import com.example.kotlin1homework3.model.EpisodeModel
 
 class EpisodeAdapter(
-    val onItemClick: (id :Int)  -> Unit
+    private val onItemClick: (id: Int) -> Unit
 
-) : ListAdapter<EpisodeModel, EpisodeAdapter.ViewHolder>(diffCallback) {
+) : PagingDataAdapter<EpisodeModel, EpisodeAdapter.ViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -35,7 +35,7 @@ class EpisodeAdapter(
 
         init {
             itemView.setOnClickListener {
-                getItem(absoluteAdapterPosition).apply {
+                getItem(absoluteAdapterPosition)?.apply {
                     onItemClick(id)
                 }
             }
@@ -43,8 +43,8 @@ class EpisodeAdapter(
     }
 
     companion object {
-        private val diffCallback: DiffUtil.ItemCallback<EpisodeModel?> =
-            object : DiffUtil.ItemCallback<EpisodeModel?>() {
+        private val diffCallback: DiffUtil.ItemCallback<EpisodeModel> =
+            object : DiffUtil.ItemCallback<EpisodeModel>() {
                 override fun areItemsTheSame(
                     oldItem: EpisodeModel,
                     newItem: EpisodeModel

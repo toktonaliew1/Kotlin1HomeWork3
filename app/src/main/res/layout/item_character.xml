@@ -41,4 +41,14 @@
         app:layout_constraintLeft_toRightOf="@id/item_character_image"
         app:layout_constraintTop_toTopOf="@id/item_character_image" />
 
+    <TextView
+        android:id="@+id/item_character_object"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/item_character_name"
+        app:layout_constraintLeft_toRightOf="@id/item_character_image"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

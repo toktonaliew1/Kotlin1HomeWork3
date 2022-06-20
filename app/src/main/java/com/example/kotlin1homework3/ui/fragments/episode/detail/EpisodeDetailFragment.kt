@@ -4,17 +4,17 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.kotlin1homework3.R
 import com.example.kotlin1homework3.databinding.FragmentEpisodeDetailBinding
-import com.example.kotlin1homework3.ui.fragments.episode.EpisodeSharedViewModel
+import com.example.kotlin1homework3.ui.fragments.episode.EpisodeViewModel
 
 class EpisodeDetailFragment : Fragment(R.layout.fragment_episode_detail) {
 
     private val binding by viewBinding(FragmentEpisodeDetailBinding::bind)
-    private val viewModel : EpisodeSharedViewModel by activityViewModels()
+    private val viewModel by viewModels<EpisodeViewModel> ()
     private val args: EpisodeDetailFragmentArgs by navArgs()
 
     @SuppressLint("CheckResult")

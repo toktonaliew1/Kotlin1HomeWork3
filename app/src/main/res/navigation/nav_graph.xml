@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/characterDetailsFragment"
         android:name="com.example.kotlin1homework3.ui.fragments.character.detail.CharacterDetailFragment"
-        android:label="fragment_character_details"
+        android:label="Character_detail"
         tools:layout="@layout/fragment_character_detail">
         <argument
             android:name="position"
@@ -40,7 +40,7 @@
     <fragment
         android:id="@+id/episodeDetailFragment"
         android:name="com.example.kotlin1homework3.ui.fragments.episode.detail.EpisodeDetailFragment"
-        android:label="episode_detail"
+        android:label="Episode_detail"
         tools:layout="@layout/fragment_episode_detail" >
         <argument
             android:name="position"
@@ -62,12 +62,11 @@
     <fragment
         android:id="@+id/locationDetailFragment"
         android:name="com.example.kotlin1homework3.ui.fragments.location.detail.LocationDetailFragment"
-        android:label="location_detail"
+        android:label="Location_detail"
         tools:layout="@layout/fragment_location_detail" >
         <argument
             android:name="position"
             app:argType="integer" />
     </fragment>
-
 
 </navigation>

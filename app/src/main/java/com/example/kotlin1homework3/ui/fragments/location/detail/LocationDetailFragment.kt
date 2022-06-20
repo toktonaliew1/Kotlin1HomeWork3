@@ -4,17 +4,17 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.kotlin1homework3.R
 import com.example.kotlin1homework3.databinding.FragmentLocationDetailBinding
-import com.example.kotlin1homework3.ui.fragments.location.LocationSharedViewModel
+import com.example.kotlin1homework3.ui.fragments.location.LocationViewModel
 
 class LocationDetailFragment : Fragment(R.layout.fragment_location_detail) {
 
     private val binding by viewBinding(FragmentLocationDetailBinding::bind)
-    private val viewModel : LocationSharedViewModel by activityViewModels()
+    private val viewModel by viewModels<LocationViewModel>()
     private val args: LocationDetailFragmentArgs by navArgs()
 
     @SuppressLint("CheckResult")

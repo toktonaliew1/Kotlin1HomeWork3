@@ -21,13 +21,11 @@ class RetrofitClient {
     private fun provideLoggingInterceptor() =
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
-
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://rickandmortyapi.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
-
 
     fun providerCharacterApiService(): CharacterApiService {
         return retrofit.create(CharacterApiService::class.java)

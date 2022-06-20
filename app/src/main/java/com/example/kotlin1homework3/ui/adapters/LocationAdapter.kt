@@ -3,16 +3,16 @@ package com.example.kotlin1homework3.ui.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin1homework3.databinding.ItemLocationBinding
 import com.example.kotlin1homework3.model.LocationModel
 
 class LocationAdapter(
-    val onItemClick: (id :Int)  -> Unit
+    val onItemClick: (id: Int) -> Unit
 
-) : ListAdapter<LocationModel, LocationAdapter.ViewHolder>(diffCallback) {
+) : PagingDataAdapter<LocationModel, LocationAdapter.ViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -34,7 +34,7 @@ class LocationAdapter(
 
         init {
             itemView.setOnClickListener {
-                getItem(absoluteAdapterPosition).apply {
+                getItem(absoluteAdapterPosition)?.apply {
                     onItemClick(id)
                 }
             }
@@ -42,8 +42,8 @@ class LocationAdapter(
     }
 
     companion object {
-        private val diffCallback: DiffUtil.ItemCallback<LocationModel?> =
-            object : DiffUtil.ItemCallback<LocationModel?>() {
+        private val diffCallback: DiffUtil.ItemCallback<LocationModel> =
+            object : DiffUtil.ItemCallback<LocationModel>() {
                 override fun areItemsTheSame(
                     oldItem: LocationModel,
                     newItem: LocationModel
