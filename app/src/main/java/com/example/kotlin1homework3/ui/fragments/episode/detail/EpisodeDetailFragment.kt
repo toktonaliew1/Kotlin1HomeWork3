@@ -14,7 +14,7 @@ import com.example.kotlin1homework3.ui.fragments.episode.EpisodeViewModel
 class EpisodeDetailFragment : Fragment(R.layout.fragment_episode_detail) {
 
     private val binding by viewBinding(FragmentEpisodeDetailBinding::bind)
-    private val viewModel by viewModels<EpisodeViewModel> ()
+    private val viewModel by viewModels<EpisodeDetailViewModel> ()
     private val args: EpisodeDetailFragmentArgs by navArgs()
 
     @SuppressLint("CheckResult")

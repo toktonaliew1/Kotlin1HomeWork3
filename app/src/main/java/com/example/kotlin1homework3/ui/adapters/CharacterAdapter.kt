@@ -12,7 +12,6 @@ import com.example.kotlin1homework3.model.CharacterModel
 
 class CharacterAdapter(
     private val onItemClick: (id: Int) -> Unit
-
 ) : PagingDataAdapter<CharacterModel, CharacterAdapter.ViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,7 +24,6 @@ class CharacterAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.onBind(getItem(position))
     }
-
 
     inner class ViewHolder(private val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root) {

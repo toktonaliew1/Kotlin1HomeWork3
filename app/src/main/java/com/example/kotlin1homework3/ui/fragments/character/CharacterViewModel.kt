@@ -17,10 +17,6 @@ class CharacterViewModel : ViewModel() {
         return repository.getCharacters()
     }
 
-    fun fetchCharacterId(id : Int): MutableLiveData<CharacterModel>{
-        return repository.fetchCharacterId(id)
-    }
-
     fun fetchCharacters(): LiveData<PagingData<CharacterModel>>{
         return repository.fetchCharacters().cachedIn(viewModelScope)
     }

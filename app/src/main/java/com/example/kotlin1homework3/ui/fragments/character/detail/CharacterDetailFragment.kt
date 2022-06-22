@@ -14,7 +14,7 @@ import com.example.kotlin1homework3.ui.fragments.character.CharacterViewModel
 class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
 
     private val binding by viewBinding(FragmentCharacterDetailBinding::bind)
-    private val viewModel by viewModels<CharacterViewModel>()
+    private val viewModel by viewModels<CharacterDetailViewModel>()
     private val args: CharacterDetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

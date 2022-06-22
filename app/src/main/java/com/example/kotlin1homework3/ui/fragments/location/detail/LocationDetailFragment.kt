@@ -14,7 +14,7 @@ import com.example.kotlin1homework3.ui.fragments.location.LocationViewModel
 class LocationDetailFragment : Fragment(R.layout.fragment_location_detail) {
 
     private val binding by viewBinding(FragmentLocationDetailBinding::bind)
-    private val viewModel by viewModels<LocationViewModel>()
+    private val viewModel by viewModels<LocationDetailViewModel>()
     private val args: LocationDetailFragmentArgs by navArgs()
 
     @SuppressLint("CheckResult")
